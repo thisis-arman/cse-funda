@@ -13,6 +13,9 @@ class Node{
 
 int main()
 {
+    // head store the address of node in stack memory;
+    //  and new Node is created in heap memory which is dynamic ;
+    // head is just a pointer
     Node* head = new Node(10);
     Node* a = new Node(20);
     Node* b = new Node(30);
