@@ -1,10 +1,1 @@
-Before Reverse: Head = 10, Tail = 40
-10
-20
-30
-40
-After Reverse: Head = 40, Tail = 40
-40
-30
-20
-10
+40 30 20 10 
