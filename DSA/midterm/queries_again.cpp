@@ -18,7 +18,7 @@ void print_forward(ListNode *head)
 {
 
     ListNode *temp = head;
-    cout <<"L->";
+    cout << "L->";
     while (temp != NULL)
     {
         cout << temp->val << " ";
@@ -31,7 +31,7 @@ void print_backward(ListNode *tail)
 {
 
     ListNode *temp = tail;
-    cout <<"R->";
+    cout << "R->";
     while (temp != NULL)
     {
         cout << temp->val << " ";
@@ -61,14 +61,23 @@ void insert_at_head(ListNode *&head, ListNode *&tail, int val)
         head = tail = newNode;
         return;
     }
-    newNode->next= head;
-    head->prev=newNode;
-    head=newNode;
+    newNode->next = head;
+    head->prev = newNode;
+    head = newNode;
 };
 
-void insert_any_pos(ListNode* &head,ListNode* &tail,int pos,int val){
+void insert_any_pos(ListNode *&head, ListNode *&tail, int pos, int val)
+{
+    ListNode *newNode = new ListNode(val);
 
-
+    ListNode *temp = head;
+    for (int i = 1; i < pos; i++)
+    {
+        temp = temp->next;
+        
+    }
+    newNode->prev = temp;
+    newNode->next = temp->next;
 }
 
 int main()
@@ -83,12 +92,13 @@ int main()
         cin >> x >> v;
         if (x == 0)
         {
-            insert_at_head(head,tail,v);
+            insert_at_head(head, tail, v);
             print_forward(head);
             print_backward(tail);
-
-        }else if (size(head)>=v){
-            insert_any_pos(head,tail,x,v);
+        }
+        else if (size(head) > v)
+        {
+            insert_any_pos(head, tail, x, v);
             print_forward(head);
             print_backward(tail);
         }
