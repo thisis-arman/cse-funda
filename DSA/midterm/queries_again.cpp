@@ -18,7 +18,7 @@ void print_forward(ListNode *head)
 {
 
     ListNode *temp = head;
-    cout << "L->";
+    cout << "L -> ";
     while (temp != NULL)
     {
         cout << temp->val << " ";
@@ -31,7 +31,7 @@ void print_backward(ListNode *tail)
 {
 
     ListNode *temp = tail;
-    cout << "R->";
+    cout << "R -> ";
     while (temp != NULL)
     {
         cout << temp->val << " ";
@@ -73,13 +73,24 @@ void insert_any_pos(ListNode *&head, ListNode *&tail, int pos, int val)
     ListNode *temp = head;
     for (int i = 1; i < pos; i++)
     {
+        // cout <<"pos____________b"<<pos<<val <<endl;
         temp = temp->next;
-        
     }
-    newNode->prev = temp;
+    // cout <<"pos____________v"<<val <<pos<<endl;
     newNode->next = temp->next;
+    newNode->prev = temp;
+
+    temp->next->prev = newNode;
+    temp->next = newNode;
 }
 
+void insert_at_tail(ListNode *&head, ListNode *&tail, int val)
+{
+    ListNode *newNode = new ListNode(val);
+    tail->next = newNode;
+    newNode->prev = tail;
+    tail = newNode;
+}
 int main()
 {
     ListNode *head = NULL;
@@ -90,17 +101,31 @@ int main()
     {
         int x, v;
         cin >> x >> v;
+        // cout << "length  " << size(head) << " X  " << x << " V  " << v << endl;
+        int length = size(head);
         if (x == 0)
         {
             insert_at_head(head, tail, v);
             print_forward(head);
             print_backward(tail);
         }
-        else if (size(head) > v)
+        else if (x == length)
+        {
+            // cout << "asche " << v;
+            insert_at_tail(head, tail, v);
+            print_forward(head);
+            print_backward(tail);
+        }
+        else if (x > 0 && x < length)
         {
             insert_any_pos(head, tail, x, v);
             print_forward(head);
             print_backward(tail);
+        }
+
+        else
+        {
+            cout << "Invalid" << endl;
         }
     }
 
