@@ -7,23 +7,23 @@ public:
     vector<int> l;
     void push(int val)
     {
-        l.push_back(val);
+        l.push_back(val); // O(1)
     }
     void pop()
     {
-        l.pop_back();
+        l.pop_back();// O(1)
     }
     int size()
     {
-        return l.size();
+        return l.size();// O(1)
     }
     bool empty()
     {
-        return l.empty();
+        return l.empty();// O(1)
     }
     int top()
     {
-        return l.back();
+        return l.back();// O(1)
     }
 };
 int main()
