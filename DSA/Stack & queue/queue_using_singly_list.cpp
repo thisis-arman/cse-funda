@@ -24,6 +24,13 @@ class myQueue{
         tail->next=newNode;
         tail=newNode;
     }
+    void pop(){
+        ListNode* deleteNode= head;
+        head= head->next;
+        if(head==NULL){
+            tail=NULL;
+        }
+    }
 };
 
 int main()
