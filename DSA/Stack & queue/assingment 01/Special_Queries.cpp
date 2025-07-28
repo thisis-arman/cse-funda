@@ -11,8 +11,6 @@ int main()
         int x;
         string name;
         cin >> x;
-        // cout <<x <<" ____ "<<name;
-
         if (x == 0)
         {
             cin >> name;
@@ -28,10 +26,5 @@ int main()
             cout << "Invalid" << endl;
         }
     }
-    // while (!q.empty())
-    // {
-    //     cout << q.front() << endl;
-    //     q.pop();
-    // }
     return 0;
 }
