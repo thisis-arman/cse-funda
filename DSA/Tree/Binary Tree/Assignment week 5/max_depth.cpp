@@ -15,13 +15,15 @@ public:
     }
 };
 
-TreeNode *input_tree()
+pair<TreeNode *,int>input_tree()
 {
+    int count =0;
     int val;
     cin >> val;
     TreeNode *root = new TreeNode(val);
     queue<TreeNode *> q;
     q.push(root);
+    count ++;
     while (!q.empty())
     {
         TreeNode *p = q.front();
@@ -45,53 +47,38 @@ TreeNode *input_tree()
         if (p->left)
         {
             q.push(p->left);
+            count ++;
         }
 
         if (p->right)
         {
             q.push(p->right);
+            count ++;
         }
     }
-    return root;
+    return {root,count};
 }
 
-vector<int> sum_without_leaf(TreeNode *root)
-{
-    queue<TreeNode *> q;
-    vector<int> v;
-    q.push(root);
-    while (!q.empty())
-    {
-        TreeNode *p = q.front();
-        q.pop();
-        if (p->left != NULL || p->right != NULL)
-        {
-            v.push_back(p->val);
-        }
-        if (p->left)
-        {
-            q.push(p->left);
-        }
-        if (p->right)
-        {
-            q.push(p->right);
-        }
-    }
-    return v;
+int max_depth(TreeNode* root){
+    if(root==NULL)return 0;
+    int l = max_depth(root->left);
+    int r = max_depth(root->right);
+    return max(l,r)+1;
 }
 
 int main()
 {
-    TreeNode *root = input_tree();
-    vector<int> v = sum_without_leaf(root);
-
-    int sum = 0;
-    for (int s : v)
-    {
-        // cout<<"nodes___ " <<s <<endl;
-        sum += s;
+    pair<TreeNode *,int>root = input_tree();
+    int mx= max_depth(root.first);
+    int val=pow(2,mx)-1;
+    // cout <<val;
+    // cout <<root.second;
+    if(root.second==val){
+        cout<< "YES";
+    }else{
+        cout<<"NO";
     }
-    cout << sum;
+
 
     return 0;
 }
