@@ -1,3 +1,4 @@
 akib 30
 rakib 10
 sakib 20
+1

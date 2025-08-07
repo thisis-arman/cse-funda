@@ -12,5 +12,9 @@ int main()
     {
         cout << it->first << " " << it->second << endl;
     }
+
+    // to check the key is available or not 
+
+    cout << mp.count("sakib");
     return 0;
 }
