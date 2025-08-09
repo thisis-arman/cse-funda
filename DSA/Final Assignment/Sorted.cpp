@@ -3,6 +3,8 @@ using namespace std;
 
 int main()
 {
+    // how set works 
+    //  it removes duplicate from the array and return in asc order
     
     int t;
     cin >> t;
