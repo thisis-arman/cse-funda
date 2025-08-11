@@ -1,7 +1,23 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main()
+class cmp
+{
+    bool operator()(int l, int r)
+    {
+        if (l > r)
+        {
+            return true;
+        }
+        else if(l<r)
+        {
+            return false;
+        }
+    }
+};
+
+int
+main()
 {
     int q;
     cin >> q;
@@ -11,6 +27,7 @@ int main()
         string str;
         getline(cin, str);
         map<string, int> mp;
+        priority_queue<string, int, cmp> pq;
         string word;
         stringstream ss(str);
         while (ss >> word)
