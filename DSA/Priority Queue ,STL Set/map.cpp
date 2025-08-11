@@ -3,6 +3,9 @@ using namespace std;
 
 int main()
 {
+    // set syntax
+    // set<int> s;
+    
     map<string, int> mp;
     mp["rakib"] = 10;
     mp["sakib"] = 20;
