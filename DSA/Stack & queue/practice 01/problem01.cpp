@@ -75,7 +75,7 @@ int main()
         cin >> val;
         st2.push(val);
     }
-
+    
     bool status = true;
     if (st.size() != st2.size())
     {
