@@ -7,7 +7,7 @@ void bfs(int src)
 {
     queue<int> q;
     q.push(src);
-    vis[src]=true;
+    vis[src] = true;
     while (!q.empty())
     {
         int par = q.front();
@@ -17,9 +17,10 @@ void bfs(int src)
 
         for (int child : adj_list[par])
         {
-            if(!vis[child]){
+            if (!vis[child])
+            {
                 q.push(child);
-                vis[child]=true;
+                vis[child] = true;
             }
         }
     }
@@ -37,7 +38,17 @@ int main()
         adj_list[b].push_back(a);
     }
     memset(vis, false, sizeof(vis));
+    int src, dst;
+    cin >> src >> dst;
     bfs(0);
+    if (vis[dst])
+    {
+        cout << "YES" << endl;
+    }
+    else
+    {
+        cout << "NO" << endl;
+    }
 
     return 0;
 }
