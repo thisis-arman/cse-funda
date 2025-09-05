@@ -1,0 +1,5 @@
+word
+l10n
+l9o
+i18n
+p43s
