@@ -1,6 +1,3 @@
-5
-word
-localization
-localizatio
-internationalization
-pneumonoultramicroscopicsilicovolcanoconiosis
+2
+1 0 0
+0 1 1
