@@ -1,5 +1,1 @@
-c c
-o o
-d d
-e e
 YES
