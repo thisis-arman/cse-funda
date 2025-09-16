@@ -12,6 +12,8 @@ public:
     }
 };
 
+
+
 int dis[1005];
 
 int main()
