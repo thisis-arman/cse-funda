@@ -30,7 +30,21 @@ int main()
         adj_mat[a][b] = c;
     }
 
-    for (int i = 0; i <n; i++)
+    for (int k = 0; k < n; k++)
+    {
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                if (adj_mat[i][k] != INT_MAX && adj_mat[k][j] != INT_MAX && adj_mat[i][k] + adj_mat[j][k] < adj_mat[i][j])
+                {
+                    adj_mat[i][j] = adj_mat[i][k] + adj_mat[j][k];
+                }
+            }
+        }
+    }
+
+    for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < n; j++)
         {
@@ -40,7 +54,7 @@ int main()
             }
             else
             {
-                cout << adj_mat[i][j] <<" ";
+                cout << adj_mat[i][j] << " ";
             }
         }
         cout << endl;
