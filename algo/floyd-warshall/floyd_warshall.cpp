@@ -36,9 +36,9 @@ int main()
         {
             for (int j = 0; j < n; j++)
             {
-                if (adj_mat[i][k] != INT_MAX && adj_mat[k][j] != INT_MAX && adj_mat[i][k] + adj_mat[j][k] < adj_mat[i][j])
+                if (adj_mat[i][k] != INT_MAX && adj_mat[k][j] != INT_MAX && adj_mat[i][k] + adj_mat[k][j] < adj_mat[i][j])
                 {
-                    adj_mat[i][j] = adj_mat[i][k] + adj_mat[j][k];
+                    adj_mat[i][j] = adj_mat[i][k] + adj_mat[k][j];
                 }
             }
         }
