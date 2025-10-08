@@ -14,7 +14,6 @@ int main()
             cout << "No"<<endl;
             
         }
-
     }
 
 
