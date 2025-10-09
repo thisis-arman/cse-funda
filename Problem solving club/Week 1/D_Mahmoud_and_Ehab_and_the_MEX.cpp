@@ -31,6 +31,7 @@ int main() {
         }
     }
 
+    
     if (hasX) op++; 
     cout << op << endl;
     return 0;
