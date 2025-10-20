@@ -1,1 +1,1 @@
-amis
+Knuth-Morris-Pratt

@@ -15,7 +15,7 @@ int main()
             break;
         }
     }
-
+    
     cout <<( isHiss ? "hiss" : "no hiss");
     return 0;
 }
