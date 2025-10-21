@@ -1,28 +1,22 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main()
-{
-    string str;
-    cin >> str;
-    sort(str.begin(), str.end());
-    bool isFound = false;
+int main() {
+    string s;
+    cin >> s;
 
-    int len = str.length();
-    for (int i = 0; i < len; i++)
-    {
-        if (str[i + 1] - str[i] > 1)
-        {
-            cout << char(str[i] + 1) << " ";
-            isFound = true;
-            break;
+    vector<bool> present(26, false);
+    for (char c : s) {
+        present[c - 'a'] = true;
+    }
+
+    for (int i = 0; i < 26; i++) {
+        if (!present[i]) {
+            cout << char('a' + i) << "\n";
+            return 0;
         }
     }
 
-    if (!isFound)
-    {
-        cout << "None";
-    }
-
+    cout << "None\n";
     return 0;
 }
