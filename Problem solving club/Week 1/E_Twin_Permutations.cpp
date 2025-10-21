@@ -1,40 +1,31 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main()
-{
+int main() {
     int t;
-    if (!(cin >> t))
-        return 0;
-    while (t--)
-    {
+    cin >> t;
+    while (t--) {
         int n;
         cin >> n;
         vector<int> a(n);
-        for (int i = 0; i < n; ++i)
-            cin >> a[i];
+        for (int i = 0; i < n; i++) cin >> a[i];
 
-        vector<pair<int, int>> pairs;
-        pairs.reserve(n);
-        for (int i = 0; i < n; ++i)
-            pairs.emplace_back(a[i], i);
+        // Store value and index
+        vector<pair<int, int>> v;
+        for (int i = 0; i < n; i++) v.push_back({a[i], i});
 
-        sort(pairs.begin(), pairs.end());
+        // Sort by value of a
+        sort(v.begin(), v.end());
 
+        // b should be permutation of 1..n (sorted order)
         vector<int> b(n);
-        for (int i = 0; i < n; ++i)
-        {
-            int idx = pairs[i].second;
-            b[idx] = i + 1;
+        for (int i = 0; i < n; i++) {
+            // Assign increasing values of b to increasing a
+            b[v[i].second] = i + 1;
         }
 
-        for (int i = 0; i < n; ++i)
-        {
-            if (i)
-                cout << ' ';
-            cout << b[i];
-        }
-        cout << '\n';
+        for (int i = 0; i < n; i++) cout << b[i] << " ";
+        cout << "\n";
     }
     return 0;
 }
