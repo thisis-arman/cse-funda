@@ -8,45 +8,23 @@ int main()
 
     int t;
     cin >> t;
-    vector<string> s;
-    while (t--)
+    map<string, int> cnt;
+
+    string name;
+    for (int i = 0; i < t; i++)
     {
-        string str;
-        cin >> str;
-        s.push_back(str);
-    }
-
-    vector<string> ans;
-    for (int i = 0; i < s.size(); i++)
-    {
-        if (i == 0)
+        cin >> name;
+        if (cnt[name] == 0)
         {
-            ans.push_back("OK");
-            continue;
-        }
-        auto it = find(s.begin(), s.end(), s[i]);
-
-        int dis = distance(s.begin(), it);
-        if (dis < i)
-        {
-
-            string str = s[i] + "1";
-            ans.push_back(str);
+            cout << "OK" << endl;
         }
         else
         {
-            ans.push_back("OK");
+            cout << name << cnt[name] << endl;
         }
+        cnt[name]++;
+        // cout << "what "<<  cnt[name]++<<endl;
+    }
 
-        // cout << *it << " ";
-        // if(it!=s.begin()+i){
-        //     ans.push_back("Ok");
-        // }else{
-        // }
-    }
-    for (auto c : ans)
-    {
-        cout << c << endl;
-    }
     return 0;
 }
