@@ -1,29 +1,31 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
+
     int n;
     cin >> n;
-    vector<string> v;
-    string str;
-    cin >> str;
+    string s;
+    cin >> s;
+
     map<string, int> mp;
-    for (int i = 0; i < n - 1; i++)
-    {
-        string st = str.substr(i, 2);
-        mp[st]--;
-        // cout << st << " ";
+
+    for (int i = 0; i < n - 1; i++) {
+        string st = s.substr(i, 2);
+        mp[st]++;
     }
-    vector<pair<string, int>> final;
-    for (auto [s, x] : mp)
-    {
-        final.push_back({s, x});
-        cout << s <<" " << x <<" " << endl;
+
+    string ans = "";
+    int maxCount = 0;
+    for (auto [gram, cnt] : mp) {
+        if (cnt > maxCount) {
+            maxCount = cnt;
+            ans = gram;
+        }
     }
-    sort(final.begin(), final.end());
-    cout << final.front().first;
+
+    cout << ans << "\n";
     return 0;
 }
