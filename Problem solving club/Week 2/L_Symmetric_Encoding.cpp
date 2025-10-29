@@ -5,23 +5,34 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
+
     int t;
     cin >> t;
     while (t--)
     {
         int n;
         cin >> n;
-        string str;
-        cin >> str;
+        string b;
+        cin >> b;
+
+        string r = b;
+        sort(r.begin(), r.end());
+        r.erase(unique(r.begin(), r.end()), r.end());
+
         map<char, char> mp;
-        for (int i = 0; i < n; i++)
+        int len = r.size();
+        for (int i = 0; i < len; i++)
         {
-            mp[str[i]] = str[(n - 1) - i];
+            mp[r[i]] = r[len - 1 - i];
         }
 
-        for(auto [x,y]:mp){
-            cout << x <<" "<<y <<endl;
+        string dc = "";
+        for (char c : b)
+        {
+            dc.push_back(mp[c]);
         }
+
+        cout << dc << "\n";
     }
 
     return 0;
