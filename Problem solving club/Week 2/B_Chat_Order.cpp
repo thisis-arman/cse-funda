@@ -1,30 +1,27 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    int t;
-    cin >> t;
-    deque<string> deq;
-    while (t--)
-    {
-        string s;
-        cin >> s;
-        deq.push_back(s);
+
+    int n;
+    cin >> n;
+    vector<string> m(n);
+    for (int i = 0; i < n; i++) cin >> m[i];
+
+    unordered_set<string> s;
+    vector<string> c;
+
+    for (int i = n - 1; i >= 0; i--) {
+        if (!s.count(m[i])) {
+            s.insert(m[i]);
+            c.push_back(m[i]); 
+        }
     }
 
-    map<string, int> mp;
-    for (int i = deq.size() - 1; i >= 0; i--)
-    {
-        mp[deq[i]]++;
-    }
-
-    for (auto [s, x] : mp)
-    {
-        cout << s << "--" << x << endl;
-    }
+    for (auto &name : c)
+        cout << name << "\n";
 
     return 0;
 }
