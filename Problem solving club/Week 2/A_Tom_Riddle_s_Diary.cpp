@@ -7,16 +7,16 @@ int main() {
 
     int n;
     cin >> n;
-    set<string> seen;
+    set<string> read;
 
     while (n--) {
         string s;
         cin >> s;
-        if (seen.count(s)) {
+        if (read.count(s)) {
             cout << "YES\n";
         } else {
             cout << "NO\n";
-            seen.insert(s);
+            read.insert(s);
         }
     }
 
