@@ -1,44 +1,28 @@
 #include <bits/stdc++.h>
 using namespace std;
-using ll = long long;
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+   ios::sync_with_stdio(false);
+   cin.tie(nullptr);
 
-    int T;
-    cin >> T;
-    while (T--) {
-        int N;
-        cin >> N;
-        vector<ll> A(N);
-        for (int i = 0; i < N; ++i) cin >> A[i];
+   int n, m;
+   cin >> n >> m;
+   vector<int> a(n + 1), cnt(n + 1);
+   for (int i = 1;i <= n;i++) {
+      cin >> a[i];
+   }
 
-        unordered_map<ll, int> pos;
-        pos.reserve(N * 2);
-        for (int i = 0; i < N; ++i) pos[A[i]] = i;
+   set<int> s;
+   for (int i = n;i >= 1;i--) {
+      s.insert(a[i]);
+      cnt[i] = s.size();
+   }
 
-        vector<ll> s = A;
-        sort(s.begin(), s.end());
+   for (int i = 1;i <= m;i++) {
+      int pos;
+      cin >> pos;
+      cout << cnt[pos] << '\n';
+   }
 
-        vector<ll> cnt_sorted(N, 0);
-        for (int i = 1; i < N - 1; ++i) {
-            long double mL = ((long double)s[i - 1] + s[i]) / 2.0L;
-            long double mR = ((long double)s[i] + s[i + 1]) / 2.0L;
-            ll cnt = (ll)floor(mR) - (ll)floor(mL);
-            cnt_sorted[i] = max(0LL, cnt);
-        }
-
-        vector<ll> ans(N);
-        for (int i = 0; i < N; ++i) {
-            ll val = s[i];
-            int idx = pos[val];
-            ans[idx] = (i == 0 || i == N - 1) ? -1 : cnt_sorted[i];
-        }
-
-        for (int i = 0; i < N; ++i) {
-            cout << ans[i] << (i + 1 < N ? ' ' : '\n');
-        }
-    }
-    return 0;
+   return 0;
 }
