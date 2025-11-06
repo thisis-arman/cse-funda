@@ -1,39 +1,37 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
+
     int n, q;
     cin >> n >> q;
-    deque<int> deq;
-    for (int i = 0; i < n; i++)
-    {
+    multiset<int> ms;
+
+    for (int i = 0; i < n; i++) {
         int x;
         cin >> x;
-        deq.push_back(x);
+        ms.insert(x);
     }
-    for (int i = 0; i < q; i++)
-    {
+
+    while (q--) {
         int y;
         cin >> y;
-        if (y == 0)
-        {
+
+        if (y == 0) {
             int add;
             cin >> add;
-            deq.push_back(add);
-        }
-        sort(deq.begin(), deq.end());
-        if (y == 1)
-        {
-            cout << deq.front() << endl;
-            deq.pop_front();
-        }
-        else if (y == 2)
-        {
-            cout << deq.back() << endl;
-            deq.pop_back();
+            ms.insert(add);
+        } 
+        else if (y == 1) {
+            cout << *ms.begin() << endl;
+            ms.erase(ms.begin());
+        } 
+        else if (y == 2) {
+            auto it = prev(ms.end());
+            cout << *it << endl;
+            ms.erase(it);
         }
     }
 
