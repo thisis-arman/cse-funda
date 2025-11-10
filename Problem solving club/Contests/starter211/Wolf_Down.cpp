@@ -12,10 +12,8 @@ int main() {
         cin >> n;
         string s;
         cin >> s;
-
         bool ws = false;
         int sb = 0;
-        
         for (char c : s) {
             if (c == '1') {
                 ws = true;
